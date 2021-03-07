@@ -8,6 +8,10 @@ module.exports = {
         filename : "main.js"
     },
     mode : "development",
+    devServer : {
+        port : 8082,
+        contentBase : "./src"
+    },
     module : {
         rules : [
             {
