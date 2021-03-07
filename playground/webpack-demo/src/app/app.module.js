@@ -4,7 +4,9 @@ angular.module("app", ["emp-app"])
     .controller("MainController",["$scope", "$rootScope", function ($scope, $rootScope) {
         // $scope.product = product;
         $scope.products = PRODUCTS;
-        
+        $scope.tab = 0
+        $scope.title = "Awesome App"
+
         $rootScope.favColor = "Green";
         $scope.onBtnClick = function () {
             alert("Who's this ?")
