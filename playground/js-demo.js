@@ -111,3 +111,61 @@
 
 // var ship = buildTicket("Ship");
 // console.log(ship("Bam"));           // ?
+
+
+// JS Engine runs in two phases -
+// 1 - Creation phase - (memory is allocated to all variable and functions)
+// 2 - execution phase (=) 
+
+// Function hoisting
+// function mystry(){
+//     function chooseNumber(){
+//         return 7;
+//     }
+//     return chooseNumber;
+//     function chooseNumber(){
+//         return 12;
+//     }
+// }
+
+// var chooseNumber = mystry();
+// console.log(chooseNumber());            // 12
+
+// global abetments - packages/Modules - functions
+
+// Creation
+// var chooseNumber = undefined;
+// // Excution (=)
+// chooseNumber = 7
+// return chooseNumber;
+
+// function mystry(){
+//     var chooseNumber = function (){
+//         return 7;
+//     }
+//     return chooseNumber;
+//     var chooseNumber = function (){
+//         return 12;
+//     }
+// }
+
+// var chooseNumber = mystry();
+// console.log(chooseNumber());            // 7
+
+
+
+
+
+// ES6 way 
+import { getMyLuckyNumber  } from "./utils";
+
+// ES5 way - import the module
+var utils = require("./utils");
+
+function getLuckNumber(){
+    return 99;
+}
+// function getLuckNumber(){}
+
+console.log(getLuckNumber());
+console.log(utils.getLuckyNumber())
