@@ -1,1 +1,1 @@
-export default angular.module("emp-app", []);
+export const EmpApp = angular.module("emp-app", []);
