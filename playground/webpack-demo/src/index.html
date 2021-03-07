@@ -8,18 +8,23 @@
 </head>
 <body class="container" ng-app="app">
     <div ng-controller="MainController">
-        <div class="card">
-            <div class="card-header">
-                <p class="text-center display-4">
-                    {{ product.name }}
-                </p> 
-            </div>
-            <div class="card-body">
-                <p class="text-muted">Price : {{ product.price }}</p>
-                <p>Description : {{ product.description }}</p>
-                <button class="btn btn-dark" ng-click="onBtnClick()">Click Me</button>
+        <div class="row">
+            <div class="col-6" ng-repeat="product in products">
+                <div class="card">
+                    <div class="card-header">
+                        <p class="text-center display-4">
+                            {{ product.name }}
+                        </p> 
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted">Price : {{ product.price }}</p>
+                        <p>Description : {{ product.description }}</p>
+                        <button class="btn btn-dark" ng-click="onBtnClick()">Click Me</button>
+                    </div>
+                </div>
             </div>
         </div>
+        
     </div>
 
     <div ng-controller="SecondController as ctrl">
