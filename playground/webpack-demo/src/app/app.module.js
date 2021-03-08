@@ -10,5 +10,5 @@ angular.module("app", ["emp-app"])
         MainController])    
     .controller("CommentFormController", ["$scope", CommentFormController])
     .filter("countrycode", CountryCode)
-    .factory("data", DataFactory)
+    .factory("data",["$http", DataFactory])
 
