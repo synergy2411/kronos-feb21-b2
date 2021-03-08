@@ -2,79 +2,69 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Webpack Demo</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpack Demo</title>
 </head>
 
 <body class="container" ng-app="app">
 
-    <app-demo></app-demo>
+    <!-- <app-demo></app-demo> -->
     <!-- <div app-demo></div> "A"
     <div class="app-demo"></div> "C" -->
 
-<div ng-controller="MainController">
-<div class="text-center display-4">{{title}} - {{ dob | date : 'dd/MM/yyyy'}}</div>
-<br><br>
-<div class="row">
-<div class="col-6" ng-repeat="product in products | orderBy : '-price' | limitTo : 2">
-<div class="card card-margin">
-<div class="card-header">
-<h3 class="text-center">
-    {{ product.name | uppercase }}
-</h3>
-</div>
-<div class="card-body">
-<p class="text-muted">Price : {{ product.price | currency : 'INR' : 1 }}</p>
-<p>Description : {{ product.description }}</p>
-<p>Contact Number : {{ product.contactNumber | countrycode }}</p>
-<!-- <button class="btn btn-dark" ng-click="onBtnClick()">Click Me</button>
--->
-<br>
-<hr>
-<section>
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a ng-class="{active : tab ===1 }" ng-click="tab=1" class="nav-link" href>Show
-                Comments</a>
-        </li>
-        <li class="nav-item">
-            <a ng-class="{active : tab ===2 }" ng-click="tab=2" class="nav-link" href>Add
-                Comments</a>
-        </li>
-    </ul>
-    <br>
-    <br>
-    <div ng-show="tab===1">
-        <ul class="list-unstyled">
-            <li ng-repeat="comment in product.comments">
-                <div class="card">
+    <div ng-controller="MainController">
+        <div class="text-center display-4">{{title}} - {{ dob | date : 'dd/MM/yyyy'}}</div>
+        <br><br>
+        <div class="row">
+            <div class="col-6" ng-repeat="product in products | orderBy : '-price' | limitTo : 2">
+                <div class="card card-margin">
+                    <div class="card-header">
+                        <h3 class="text-center">
+                            {{ product.name | uppercase }}
+                        </h3>
+                    </div>
                     <div class="card-body">
-                        <blockquote>
-                            <strong>Stars : {{comment.stars}}</strong>
+                        <p class="text-muted">Price : {{ product.price | currency : 'INR' : 1 }}</p>
+                        <p>Description : {{ product.description }}</p>
+                        <p>Contact Number : {{ product.contactNumber | countrycode }}</p>
+                        <!-- <button class="btn btn-dark" ng-click="onBtnClick()">Click Me</button>
+-->
+                        <br>
+                        <hr>
+                        <section>
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a ng-class="{active : tab ===1 }" ng-click="tab=1" class="nav-link" href>Show
+                                        Comments</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a ng-class="{active : tab ===2 }" ng-click="tab=2" class="nav-link" href>Add
+                                        Comments</a>
+                                </li>
+                            </ul>
+                            <br>
+                            <br>
+                            <div ng-show="tab===1">
+                                <ul class="list-unstyled">
+                                    <li ng-repeat="comment in product.comments">
+                                        <app-comment-item></app-comment-item>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-center" ng-show="tab===2">
+                                <app-comment-form></app-comment-form>
+                            </div>
+                        </section>
 
-                            {{comment.body}}
-
-                            <cite class="float-right">{{comment.author}}</cite>
-                        </blockquote>
                     </div>
                 </div>
-            </li>
-        </ul>
-    </div>
-    <div class="text-center" ng-show="tab===2">
-        <app-comment-form></app-comment-form>       
-    </div>
-</section>
+            </div>
+        </div>
 
-</div>
-</div>
-</div>
-</div>
-
-</div>
-<!-- 
+    </div>
+    <!-- 
 <div ng-controller="SecondController as ctrl">
 The Message : {{ ctrl.message }}
 </div> -->
