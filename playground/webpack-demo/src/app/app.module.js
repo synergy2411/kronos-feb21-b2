@@ -6,6 +6,7 @@ import MyService from './services/my-service';
 import ConfigurableProvider from './services/configurable-provider';
 // import { ConfigurableProvider } from './services/configurable-provider';
 import DemoDirective from './directives/demo';
+import CommentFormDirective from './directives/comment-form-directive';
 
 angular.module("app", ["emp-app"])
     .config(["ConfigurableProvider", "CompanyAddress", function (ConfigurableProvider, CompanyAddress) {
@@ -25,4 +26,5 @@ angular.module("app", ["emp-app"])
     .value("CompanyName", "Kronos")
     .constant("CompanyAddress", "201, Main Road, Noida")
     .directive("appDemo", DemoDirective)
+    .directive("appCommentForm", CommentFormDirective)
 

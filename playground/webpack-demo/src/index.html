@@ -34,7 +34,7 @@
 <br>
 <hr>
 <section>
-    <ul class="nav nav-pills">
+    <ul class="nav nav-tabs">
         <li class="nav-item">
             <a ng-class="{active : tab ===1 }" ng-click="tab=1" class="nav-link" href>Show
                 Comments</a>
@@ -64,47 +64,7 @@
         </ul>
     </div>
     <div class="text-center" ng-show="tab===2">
-        <form name="commentForm" ng-controller="CommentFormController" novalidate>
-            ERROR : {{ commentForm.stars.$error }}
-            <!-- Stars -->
-            <div class="form-group">
-                <label for="stars">Stars :</label>
-                <select name="stars" class="form-control" 
-                    ng-model="comment.stars" required>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-            <!-- body -->
-            
-            <div class="form-group">
-                <textarea class="form-control" name="body" ng-model="comment.body" required
-                    minlength="6"></textarea>
-                    <div class="alert alert-danger" 
-                        ng-show="commentForm.body.$error.required && commentForm.body.$dirty">
-                            <p>Body is mandatory field...</p></div>
-                    <div class="alert alert-danger" 
-                        ng-show="commentForm.body.$error.minlength && commentForm.body.$dirty">
-                            <p>Body must have 6 characters...</p></div>
-            </div>
-            <!-- author -->
-            <div class="form-group">
-                <label for="author">Email : </label>
-                <input type="email" name="author" class="form-control" ng-model="comment.author"
-                    required email>
-            </div>
-            <!-- Button -->
-            <div class="form-group">
-                <button class="btn btn-dark btn-block" type="button"
-                    ng-click="onAddComment(product)"
-                    ng-disabled="!commentForm.$valid">
-                    Add Comment
-                </button>
-            </div>
-        </form>
+        <app-comment-form></app-comment-form>       
     </div>
 </section>
 
