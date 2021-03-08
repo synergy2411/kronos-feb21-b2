@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,12 +9,45 @@
     <!-- Angular CDN / lcoal copy -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
 </head>
-<body ng-app = "app">
-    {{"Angular"}} {{ "Works!" }}
-    {{ 4 + 5 }} {{ true ? true : False }}
+
+<body ng-app="app">
+
+    <div ng-controller="MainController">
+        <h2>Time : {{ time }}</h2>
+        <button ng-click="onClick()">Click - with ng-click</button>
+        <button id="btnClick">Click - without ng-click</button>
+    </div>
+
     <script>
         angular.module("app", [])
+            .controller("MainController", function ($scope) {
+                $scope.time = new Date();
+                $scope.onClick = function () {
+                    $scope.time = new Date();
+                }
+                // CV === PV = don't trigger digest cycle
+                // CV !== PV = do trigger digest cycle
+
+                document.getElementById("btnClick").addEventListener("click", function () {
+                    $scope.$apply(function () {
+                        $scope.time = new Date();
+                        alert('Button clicked');
+                    })
+                })
+
+                $scope.$watch(
+                    // Value Function
+                    function (scope) {
+                        return scope.time;
+                    },
+                    // listener function
+                    function (currentValue, oldValue) {
+                        console.log("Cuurent - ", currentValue)
+                        console.log("Old - ", oldValue)
+                    })
+            })
     </script>
 
 </body>
+
 </html>
