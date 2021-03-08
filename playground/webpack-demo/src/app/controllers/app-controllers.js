@@ -1,7 +1,10 @@
-import { PRODUCTS } from '../model/products';
+export function MainController ($scope, $rootScope, $log, $timeout, DataFactory) {
+    $timeout(function(){
+        $log.log("3 Seconds left...");
+    }, 3000);
+    console.log("Message - ", DataFactory.msg);
 
-export function MainController ($scope, $rootScope) {
-    $scope.products = PRODUCTS;
+    $scope.products = DataFactory.getData();
     $scope.tab = 0
     $scope.title = "Awesome App"
     $scope.dob = new Date("Dec 21, 1985")
