@@ -9,6 +9,11 @@
 </head>
 
 <body class="container" ng-app="app">
+
+    <app-demo></app-demo>
+    <!-- <div app-demo></div> "A"
+    <div class="app-demo"></div> "C" -->
+
 <div ng-controller="MainController">
 <div class="text-center display-4">{{title}} - {{ dob | date : 'dd/MM/yyyy'}}</div>
 <br><br>

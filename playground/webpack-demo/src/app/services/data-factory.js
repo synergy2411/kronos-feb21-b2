@@ -1,6 +1,4 @@
-import { PRODUCTS } from "../model/products";
-
-export default function($http, $q){
+export default function($http, $q, CompanyName){
     let obj = {};
     let qObj = $q.defer();
 
@@ -28,3 +26,8 @@ export default function($http, $q){
 // $http.post(url, data :{})
 // $http.delete(url,)
 // $http.patch(url, data :{})
+// $http({
+//     method : "POST",
+//     url : "url",
+//     data : {}
+// })
