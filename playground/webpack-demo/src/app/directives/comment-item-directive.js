@@ -5,6 +5,11 @@ export default function(){
         scope : {
             comment : "=",           // @ | = | &
             title : "@"
+        },
+        link : function(scope, element, attrs){
+            console.log("Scope - ", scope)
+            console.log("Element - ", element)
+            console.log("Attributes - ", attrs)
         }
     }
 }
