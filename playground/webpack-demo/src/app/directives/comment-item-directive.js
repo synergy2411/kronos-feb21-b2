@@ -3,7 +3,7 @@ export default function(){
         restrict : "ACE",
         templateUrl : "./app/views/comment-item.html",
         scope : {
-            comment : "=",           // @ | =
+            comment : "=",           // @ | = | &
             title : "@"
         }
     }
