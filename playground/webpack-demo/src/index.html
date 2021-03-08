@@ -8,19 +8,20 @@
 </head>
 <body class="container" ng-app="app">
 <div ng-controller="MainController">
-    <div class="text-center display-4">{{title}}</div>
+    <div class="text-center display-4">{{title}} - {{ dob | date : 'dd/MM/yyyy'}}</div>
     <br><br>
 <div class="row">
-    <div class="col-6" ng-repeat="product in products">
+    <div class="col-6" ng-repeat="product in products | orderBy : '-price' | limitTo : 2">
         <div class="card card-margin">
             <div class="card-header">
                 <h3 class="text-center">
-                    {{ product.name }}
+                    {{ product.name | uppercase }}
                 </h3> 
             </div>
             <div class="card-body">
-                <p class="text-muted">Price : {{ product.price }}</p>
+                <p class="text-muted">Price : {{ product.price | currency : 'INR' : 1 }}</p>
                 <p>Description : {{ product.description }}</p>
+                <p>Contact Number : {{ product.contactNumber | countrycode  }}</p>
                 <!-- <button class="btn btn-dark" ng-click="onBtnClick()">Click Me</button>
                     -->
                     <br>

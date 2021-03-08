@@ -5,6 +5,7 @@ export const PRODUCTS = [
         price: 70000,
         description: "Awesome Camera",
         isAvailabe: true,
+        contactNumber : 987654321,
         comments : [
             {
                 stars : 4,
@@ -24,6 +25,7 @@ export const PRODUCTS = [
         price: 90000,
         description: "Great product",
         isAvailabe: false,
+        contactNumber : 987654321,
         comments : []
     },
     {
@@ -32,6 +34,7 @@ export const PRODUCTS = [
         price: 60000,
         description: "Awesome design",
         isAvailabe: true,
+        contactNumber : 987654321,
         comments : [
             {
                 stars : 3,
