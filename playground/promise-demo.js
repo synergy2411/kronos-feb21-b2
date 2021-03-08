@@ -4,6 +4,8 @@
 // $q.defer()
 // resolve()
 // reject()
+// qObj.all("","","")
+// qObj.race("","","")
 
 function promiseDemo(arr, ms) {
     let promise = new Promise(function (resolve, reject) {
@@ -25,3 +27,11 @@ promiseDemo([1, 2], 3000)
     .then(function (response) {
         console.log(response);
     }).catch(function (err) { console.log(err) });
+
+
+
+    // XHR - XMLHttpRequest
+
+    let xhr = new XMLHttpRequest();
+    xhr.send("")
+    resolve(xhr.response);

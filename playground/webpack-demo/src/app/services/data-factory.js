@@ -17,6 +17,11 @@ export default function($http, $q){
         })
         return qObj.promise;
     }
+
+    obj.getDataFromPromise = function(){
+        return $http.get("./app/model/products.json");
+    }
+
     return obj;
 }
 
