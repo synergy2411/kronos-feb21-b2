@@ -1,106 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Webpack Demo</title>
 </head>
+
 <body class="container" ng-app="app">
 <div ng-controller="MainController">
-    <div class="text-center display-4">{{title}} - {{ dob | date : 'dd/MM/yyyy'}}</div>
-    <br><br>
+<div class="text-center display-4">{{title}} - {{ dob | date : 'dd/MM/yyyy'}}</div>
+<br><br>
 <div class="row">
-    <div class="col-6" ng-repeat="product in products | orderBy : '-price' | limitTo : 2">
-        <div class="card card-margin">
-            <div class="card-header">
-                <h3 class="text-center">
-                    {{ product.name | uppercase }}
-                </h3> 
-            </div>
-            <div class="card-body">
-                <p class="text-muted">Price : {{ product.price | currency : 'INR' : 1 }}</p>
-                <p>Description : {{ product.description }}</p>
-                <p>Contact Number : {{ product.contactNumber | countrycode  }}</p>
-                <!-- <button class="btn btn-dark" ng-click="onBtnClick()">Click Me</button>
-                    -->
-                    <br>
-                    <hr>
-                    <section>
-                        <ul class="nav nav-pills">
-                            <li class="nav-item">
-                                <a ng-class="{active : tab ===1 }" ng-click="tab=1" 
-                                    class="nav-link" href>Show Comments</a>
-                            </li>
-                            <li class="nav-item">
-                                <a ng-class="{active : tab ===2 }" ng-click="tab=2" 
-                                    class="nav-link" href>Add Comments</a>
-                            </li>
-                        </ul>
-                        <br>
-                        <br>
-                        <div ng-show="tab===1">
-                            <ul class="list-unstyled">
-                                <li ng-repeat="comment in product.comments">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <blockquote>
-                                            <strong>Stars : {{comment.stars}}</strong>
-                                            
-                                                {{comment.body}}
-                                            
-                                            <cite class="float-right">{{comment.author}}</cite>
-                                        </blockquote>
-                                    </div>
-                                </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="text-center" ng-show="tab===2">
-                            <form name="commentForm" 
-                                ng-controller="CommentFormController"
-                                novalidate>
-                                <!-- Stars -->
-                                <div class="form-group">
-                                    <label for="stars">Stars :</label>
-                                    <select name="stars" class="form-control"
-                                        ng-model="comment.stars" required>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                    </select>
-                                </div>
-                                <!-- body -->
-                                <div class="form-group">
-                                    <textarea class="form-control"
-                                        name="body"
-                                        ng-model="comment.body"
-                                        required minlength="6"></textarea>
-                                </div>
-                                <!-- author -->
-                                <div class="form-group">
-                                    <label for="author">Email : </label>
-                                    <input type="email" name="author" 
-                                        class="form-control"
-                                        ng-model="comment.author"
-                                        required email>
-                                </div>
-                                <!-- Button -->
-                                <div class="form-group">
-                                    <button class="btn btn-dark btn-block" type="button"
-                                        ng-click="onAddComment(product)">
-                                        Add Comment
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </section>
+<div class="col-6" ng-repeat="product in products | orderBy : '-price' | limitTo : 2">
+<div class="card card-margin">
+<div class="card-header">
+<h3 class="text-center">
+    {{ product.name | uppercase }}
+</h3>
+</div>
+<div class="card-body">
+<p class="text-muted">Price : {{ product.price | currency : 'INR' : 1 }}</p>
+<p>Description : {{ product.description }}</p>
+<p>Contact Number : {{ product.contactNumber | countrycode }}</p>
+<!-- <button class="btn btn-dark" ng-click="onBtnClick()">Click Me</button>
+-->
+<br>
+<hr>
+<section>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a ng-class="{active : tab ===1 }" ng-click="tab=1" class="nav-link" href>Show
+                Comments</a>
+        </li>
+        <li class="nav-item">
+            <a ng-class="{active : tab ===2 }" ng-click="tab=2" class="nav-link" href>Add
+                Comments</a>
+        </li>
+    </ul>
+    <br>
+    <br>
+    <div ng-show="tab===1">
+        <ul class="list-unstyled">
+            <li ng-repeat="comment in product.comments">
+                <div class="card">
+                    <div class="card-body">
+                        <blockquote>
+                            <strong>Stars : {{comment.stars}}</strong>
 
-            </div>
-        </div>
+                            {{comment.body}}
+
+                            <cite class="float-right">{{comment.author}}</cite>
+                        </blockquote>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
+    <div class="text-center" ng-show="tab===2">
+        <form name="commentForm" ng-controller="CommentFormController" novalidate>
+            ERROR : {{ commentForm.stars.$error }}
+            <!-- Stars -->
+            <div class="form-group">
+                <label for="stars">Stars :</label>
+                <select name="stars" class="form-control" 
+                    ng-model="comment.stars" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+            <!-- body -->
+            
+            <div class="form-group">
+                <textarea class="form-control" name="body" ng-model="comment.body" required
+                    minlength="6"></textarea>
+                    <div class="alert alert-danger" 
+                        ng-show="commentForm.body.$error.required && commentForm.body.$dirty">
+                            <p>Body is mandatory field...</p></div>
+                    <div class="alert alert-danger" 
+                        ng-show="commentForm.body.$error.minlength && commentForm.body.$dirty">
+                        <p>Body must have 6 characters...</p></div>
+            </div>
+            <!-- author -->
+            <div class="form-group">
+                <label for="author">Email : </label>
+                <input type="email" name="author" class="form-control" ng-model="comment.author"
+                    required email>
+            </div>
+            <!-- Button -->
+            <div class="form-group">
+                <button class="btn btn-dark btn-block" type="button"
+                    ng-click="onAddComment(product)"
+                    ng-disabled="!commentForm.$valid">
+                    Add Comment
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+
+</div>
+</div>
+</div>
 </div>
 
 </div>
@@ -110,4 +115,5 @@ The Message : {{ ctrl.message }}
 </div> -->
 
 </body>
+
 </html>
