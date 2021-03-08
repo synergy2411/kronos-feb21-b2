@@ -3,3 +3,26 @@
 .card-margin{
     margin-top : 10px;
 }
+
+
+.ng-valid.ng-dirty[name="body"]{
+    border-bottom : 2px green solid;
+}
+
+.ng-invalid.ng-dirty[name="body"]{
+    border-bottom : 2px red solid;
+}
+.ng-valid.ng-dirty[name="stars"]{
+    border-bottom : 2px green solid;
+}
+
+.ng-invalid.ng-dirty[name="stars"]{
+    border-bottom : 2px red solid;
+}
+.ng-valid.ng-dirty[name="author"]{
+    border-bottom : 2px green solid;
+}
+
+.ng-invalid.ng-dirty[name="author"]{
+    border-bottom : 2px red solid;
+}

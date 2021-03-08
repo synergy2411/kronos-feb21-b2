@@ -57,7 +57,44 @@
                             </ul>
                         </div>
                         <div class="text-center" ng-show="tab===2">
-                            <p>Add Comments Form coming soon...</p>
+                            <form name="commentForm" 
+                                ng-controller="CommentFormController"
+                                novalidate>
+                                <!-- Stars -->
+                                <div class="form-group">
+                                    <label for="stars">Stars :</label>
+                                    <select name="stars" class="form-control"
+                                        ng-model="comment.stars" required>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </div>
+                                <!-- body -->
+                                <div class="form-group">
+                                    <textarea class="form-control"
+                                        name="body"
+                                        ng-model="comment.body"
+                                        required minlength="6"></textarea>
+                                </div>
+                                <!-- author -->
+                                <div class="form-group">
+                                    <label for="author">Email : </label>
+                                    <input type="email" name="author" 
+                                        class="form-control"
+                                        ng-model="comment.author"
+                                        required email>
+                                </div>
+                                <!-- Button -->
+                                <div class="form-group">
+                                    <button class="btn btn-dark btn-block" type="button"
+                                        ng-click="onAddComment(product)">
+                                        Add Comment
+                                    </button>
+                                </div>
+                            </form>
                         </div>
                     </section>
 
