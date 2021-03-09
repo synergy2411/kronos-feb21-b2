@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routing Demo</title>
+    <!-- Angular CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+    <!-- Angular route CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.2/angular-route.min.js"></script>
+</head>
+<body ng-app="app">
+    
+    <!-- place to load template -->
+    <div ng-view></div>
+
+    <script>
+        angular.module("app", ["ngRoute"])
+            .config(["$routeProvider", function($routeProvider){
+                $routeProvider
+                .when("/",{
+                    templateUrl : "./views/home.html"
+                    // template : "Home Template"
+                })
+                .when("/about",{
+                    // template : "About Template"
+                    templateUrl : "./views/about.html"
+                })
+                .when("/contact",{
+                    // template : "Contact Template"
+                    templateUrl : "./views/contact.html"
+                })
+                .otherwise({
+                    redirectTo : "/"
+                })
+            }])
+    </script>
+
+
+</body>
+</html>
+
+
+<!-- > npm install serve -g  - Zero config based http server -->
+<!-- > serve -> http://localhost:5000 -->

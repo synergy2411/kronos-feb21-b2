@@ -19,6 +19,7 @@ function promiseDemo(arr, ms) {
         }
     })
     return promise;
+    // promise.all()
 }
 
 // Consumer Code

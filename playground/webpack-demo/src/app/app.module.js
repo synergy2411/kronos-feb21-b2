@@ -9,11 +9,13 @@ import DemoDirective from './directives/demo';
 import CommentFormDirective from './directives/comment-form-directive';
 import CommentItemDirective from './directives/comment-item-directive';
 
+
 angular.module("app", ["emp-app"])
-    .config(["ConfigurableProvider", "CompanyAddress", function (ConfigurableProvider, CompanyAddress) {
-        console.log("Config-----")
+    .config(["ConfigurableProvider", "CompanyAddress", 
+        function (ConfigurableProvider, CompanyAddress) {
+            // console.log("Config-----")
         ConfigurableProvider.setMessage("The Config Message");
-        console.log("Constant - ", CompanyAddress)
+        // console.log("Constant - ", CompanyAddress)
     }])
     .controller("MainController", [
         "$scope", "$rootScope", "$log", "$timeout",
@@ -29,4 +31,9 @@ angular.module("app", ["emp-app"])
     .directive("appDemo", DemoDirective)
     .directive("appCommentForm", CommentFormDirective)
     .directive("appCommentItem", CommentItemDirective)
-
+    .directive("appHeader", function(){
+        return {
+            restrict : "ACE",
+            templateUrl : "./app/views/header.html"
+        }
+    })

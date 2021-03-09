@@ -6,10 +6,14 @@ export default function(){
             comment : "=",           // @ | = | &
             title : "@"
         },
-        link : function(scope, element, attrs){
-            console.log("Scope - ", scope)
-            console.log("Element - ", element)
-            console.log("Attributes - ", attrs)
+        link : function(scope, element, attrs, ctrl){
+            
+            scope.msg = "The Scope message";
+
+            // console.log("Scope - ", scope)
+            // console.log("Element - ", element)
+            // console.log("Attributes - ", attrs)
+            // console.log("Controller - ", ctrl )
         }
     }
 }
