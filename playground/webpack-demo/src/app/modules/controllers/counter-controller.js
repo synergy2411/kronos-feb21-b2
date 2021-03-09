@@ -1,13 +1,21 @@
 // export default function (){}
+import * as CounterActions from '../store/actions/counter-actions';
+
 class CounterController {
 
-    constructor($scope){
+    constructor($scope, $ngRedux){
         "ngInject"
-        console.log("Constructor Called");
+        $ngRedux.connect(this.mapStateToThis, CounterActions)(this);
+        // console.log("Constructor Called");
     }
 
+    mapStateToThis(state){
+        return {
+            ctr : state.counter
+        }
+    }
     $onInit(){
-        console.log("OnINIT called");
+        // console.log("OnINIT called");
     }
 
 }

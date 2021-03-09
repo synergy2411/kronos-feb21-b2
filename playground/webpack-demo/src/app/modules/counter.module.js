@@ -1,11 +1,21 @@
 import CounterController from "./controllers/counter-controller";
+import ngRedux from 'ng-redux';
+import { createStore } from "redux";
+import CounterReducer from "./store/reducers/counter-reducer";
 
-export default angular.module("counter-app", [])
+const store = createStore(CounterReducer);
 
-.component("appCounter", {
-    template : "Component Template",
-    controller : CounterController
-})
+export default angular.module("counter-app", [ngRedux])
+    .config(["$ngReduxProvider", function($ngReduxProvider){
+        $ngReduxProvider.provideStore(store);
+    }])
+
+
+    .component("appCounter", {
+        // template: "Component Template",
+        templateUrl : "./app/modules/views/counter.html",
+        controller: CounterController
+    })
 
 // .directive("appCounter", function(){
 //     return {
@@ -13,3 +23,5 @@ export default angular.module("counter-app", [])
 //         template : "Counter Directive Works!"
 //     }
 // })
+
+// npm install redux ng-redux --save
