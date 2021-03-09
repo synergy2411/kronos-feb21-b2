@@ -24,7 +24,9 @@
             </button>
             <br>
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat = "r in $ctrl.res track by $index">
+                <li class="list-group-item my-list-item" 
+                    ng-repeat = "r in $ctrl.res track by $index"
+                    ng-dblclick="$ctrl.onDeleteItem($index)">
                 {{ r }}     
                 </li>
             </ul>

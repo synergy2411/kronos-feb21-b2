@@ -20,10 +20,17 @@ export default function counterReducer(state = initialState, action) {
                 counter: state.counter + action.payload
             }
         case CounterActions.STORE_RESULT:
-            console.log("REDUCER STORE_RESULT")
             return {
                 ...state,
                 result : [...state.result, state.counter]
+            }
+        case CounterActions.DELETE_RESULT:
+            const duplicateResult = state.result.filter(function(value, index){
+                return index !== action.payload
+            })
+            return {
+                ...state,
+                result : [...duplicateResult]
             }
 
         default:

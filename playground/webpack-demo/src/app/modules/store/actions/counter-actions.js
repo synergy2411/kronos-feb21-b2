@@ -2,11 +2,17 @@ export const INCREMENT = "INCREMENT";
 export const DECREMENT = "DECREMENT";
 export const ADD_COUNTER = "ADD_COUNTER";
 export const STORE_RESULT = "STORE_RESULT";
+export const DELETE_RESULT = "DELETE_RESULT"
 
 // Action Creator - function
+export function itemDelete(index){
+    return {
+        type : DELETE_RESULT,
+        payload : index
+    }
+}
 
 export function onResultStore(){
-    console.log("Action STORE_RESULT")
     return {
         type : STORE_RESULT
     }

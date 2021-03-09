@@ -8,6 +8,10 @@ class CounterController {
         $ngRedux.connect(this.mapStateToThis, CounterActions)(this);
         // console.log("Constructor Called");
     }
+    onDeleteItem(index){
+        this.itemDelete(index);
+        // console.log(index);
+    }
     onStoreResult(){
         this.onResultStore();
     }
