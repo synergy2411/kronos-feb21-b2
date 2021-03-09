@@ -8,7 +8,15 @@ class CounterController {
         $ngRedux.connect(this.mapStateToThis, CounterActions)(this);
         // console.log("Constructor Called");
     }
-
+    onAddBtnClick(value){
+        this.addCounter(value)
+    }
+    onDecreaseBtnClick(){
+        this.onDecrement();
+    }
+    onIncreaseBtnClick(){
+        this.onIncrement();
+    }
     mapStateToThis(state){
         return {
             ctr : state.counter

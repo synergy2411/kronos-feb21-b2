@@ -1,3 +1,18 @@
+<div class="container">
 <p class="display-4 text-center">
     Counter Value : {{ $ctrl.ctr }}
 </p>
+
+<div class="button-group">
+    <button class="btn btn-primary" ng-click="$ctrl.onIncreaseBtnClick()">
+        Increase
+    </button>
+    <button class="btn btn-warning" ng-click="$ctrl.onDecreaseBtnClick()">
+        Decrease
+    </button>
+    <button class="btn btn-info" ng-click="$ctrl.onAddBtnClick(10)">
+        Add - 10
+    </button>
+</div>
+
+</div>
