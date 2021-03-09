@@ -10,7 +10,7 @@ import CommentFormDirective from './directives/comment-form-directive';
 import CommentItemDirective from './directives/comment-item-directive';
 
 
-angular.module("app", ["emp-app"])
+angular.module("app", ["emp-app", "counter-app"])
     .config(["ConfigurableProvider", "CompanyAddress", 
         function (ConfigurableProvider, CompanyAddress) {
             // console.log("Config-----")
