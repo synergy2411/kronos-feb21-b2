@@ -8,6 +8,9 @@ class CounterController {
         $ngRedux.connect(this.mapStateToThis, CounterActions)(this);
         // console.log("Constructor Called");
     }
+    onStoreResult(){
+        this.onResultStore();
+    }
     onAddBtnClick(value){
         this.addCounter(value)
     }
@@ -19,7 +22,8 @@ class CounterController {
     }
     mapStateToThis(state){
         return {
-            ctr : state.counter
+            ctr : state.counter,
+            res : state.result
         }
     }
     $onInit(){

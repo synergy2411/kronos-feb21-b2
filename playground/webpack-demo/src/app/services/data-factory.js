@@ -6,7 +6,7 @@ export default function($http, $q, CompanyName){
     obj.getData = function(){
         $http.get("./app/model/products.json")
         .then(function(response){
-            console.log(response);
+            // console.log(response);
             qObj.resolve(response.data)
         })
         .catch(function(err){
