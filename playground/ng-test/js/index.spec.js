@@ -26,9 +26,6 @@ describe("Test Suite : 1", function(){
         expect(actualState.unfinished).toBeTruthy()
     })
 
-
-
-
     // beforeEach(function(){})
     // afterEach();
     // beforeAll();
