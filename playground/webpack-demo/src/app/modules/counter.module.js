@@ -20,7 +20,9 @@ const logger = store => next => action =>{
 
 export default angular.module("counter-app", [ngRedux])
     .config(["$ngReduxProvider", function($ngReduxProvider){
-        $ngReduxProvider.provideStore(store, [logger, thunk]);
+        $ngReduxProvider.provideStore(store, 
+            [logger, thunk],
+            [window.__REDUX_DEVTOOLS_EXTENSION__()]);
     }])
 
 
