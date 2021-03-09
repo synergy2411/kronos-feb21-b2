@@ -22,7 +22,8 @@ class CounterController {
         this.onDecrement();
     }
     onIncreaseBtnClick(){
-        this.onIncrement();
+        // this.onIncrement();
+        this.asyncIncrement();
     }
     mapStateToThis(state){
         return {
